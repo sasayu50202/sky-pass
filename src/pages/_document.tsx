@@ -1,6 +1,6 @@
 import { Html, Head, Main, NextScript } from "next/document";
 
-export default function Document() {
+const Document = () => {
   return (
     <Html lang="ja">
       <Head suppressHydrationWarning />
@@ -10,4 +10,5 @@ export default function Document() {
       </body>
     </Html>
   );
-}
+};
+export default Document;
