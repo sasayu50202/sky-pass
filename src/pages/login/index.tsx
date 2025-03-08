@@ -17,36 +17,31 @@ const LoginPage: NextPage = () => {
   });
 
   const onSubmit = async (data: LoginFormTypes) => {
-    console.log("ログイン情報:", data);
+    console.log(data);
     // ここでAPIリクエストを実装
     reset();
   };
 
   return (
-    <VStack p={8}>
-      <Heading as="h1">ログイン画面</Heading>
+    <VStack m={4}>
+      <Heading as="h1" textAlign="center" size="2xl" mb={4}>
+        ログイン画面
+      </Heading>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <Stack gap="4" align="flex-start" maxW="sm">
-          <Field
-            label="email"
-            invalid={!!errors.email}
-            errorText={errors.email?.message}
-          >
-            <Input
-              {...register("email", { required: "First name is required" })}
-            />
+        <Stack gap={8}>
+          <Field invalid={!!errors.email} errorText={errors.email?.message}>
+            <Input placeholder="メールアドレス *" {...register("email")} />
           </Field>
           <Field
-            label="password"
             invalid={!!errors.password}
             errorText={errors.password?.message}
           >
-            <Input
-              {...register("password", { required: "Last name is required" })}
-            />
+            <Input placeholder="パスワード *" {...register("password")} />
           </Field>
         </Stack>
-        <Button type="submit">ボタン</Button>
+        <Button type="submit" mt={8} w="100%">
+          ログイン
+        </Button>
       </form>
     </VStack>
   );
