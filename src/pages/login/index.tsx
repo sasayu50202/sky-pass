@@ -1,20 +1,9 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
 import { Button, Heading, Input, Stack, VStack } from "@chakra-ui/react";
 import { Field } from "../../components/ui/field";
 import { NextPage } from "next";
-
-// スキーマ定義
-const loginSchema = z.object({
-  email: z
-    .string()
-    .min(1, "メールアドレスは必須です！")
-    .email("有効なメールアドレスを入力してください"),
-  password: z.string().min(8, "パスワードは8文字以上で入力してください"),
-});
-
-type LoginFormValues = z.infer<typeof loginSchema>;
+import { LoginFormTypes, loginSchema } from "@/schemas/LoginSchema";
 
 const LoginPage: NextPage = () => {
   const {
@@ -22,12 +11,12 @@ const LoginPage: NextPage = () => {
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm<LoginFormValues>({
+  } = useForm<LoginFormTypes>({
     resolver: zodResolver(loginSchema),
     mode: "onChange",
   });
 
-  const onSubmit = async (data: LoginFormValues) => {
+  const onSubmit = async (data: LoginFormTypes) => {
     console.log("ログイン情報:", data);
     // ここでAPIリクエストを実装
     reset();
