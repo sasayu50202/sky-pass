@@ -6,16 +6,15 @@ import { FC } from "react";
 
 export const Header: FC = () => {
   return (
-    <header className="relative h-[70vh] flex items-center justify-center overflow-hidden">
-      <Box className="absolute inset-0">
+    <header>
+      <Box>
         <Image
           src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&q=80"
           alt="Airplane in sky"
-          className="w-full h-full object-cover"
           width={500}
           height={500}
         />
-        <div className="absolute inset-0 bg-black/50"></div>
+        <div></div>
       </Box>
 
       {/* Navigation */}
@@ -49,11 +48,9 @@ export const Header: FC = () => {
         </Link>
       </Box>
 
-      <Box className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-        <h1 className="text-5xl font-bold text-white mb-4">SkyPass</h1>
-        <p className="text-xl text-white/90 mb-8">
-          国立パイロット養成学校の試験対策note
-        </p>
+      <Box>
+        <h1>SkyPass</h1>
+        <p>国立パイロット養成学校の試験対策note</p>
       </Box>
     </header>
   );

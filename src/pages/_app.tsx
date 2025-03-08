@@ -1,5 +1,4 @@
-import { Provider } from "@/components/ui/provider";
-import "@/styles/globals.css";
+import { Provider } from "../components/ui/provider";
 import type { AppProps } from "next/app";
 
 const App = ({ Component, pageProps }: AppProps) => {

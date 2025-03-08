@@ -4,7 +4,7 @@ const Document = () => {
   return (
     <Html lang="ja">
       <Head suppressHydrationWarning />
-      <body className="antialiased">
+      <body>
         <Main />
         <NextScript />
       </body>
